@@ -11,7 +11,6 @@ export default async function Home() {
           <h1 className="text-3xl font-bold text-gray-900">My Code Snippets</h1>
           <span className="text-sm text-gray-600">{snippets.length} snippets</span>
         </div>
-
         <div className="grid gap-6 md:grid-cols-2">
           {snippets.map((snippet) => (
             <div
