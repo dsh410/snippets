@@ -2,20 +2,6 @@ import { db } from '@/db';
 
 export default async function Home() {
   const snippets = await db.snippet.findMany();
-  let renderedSnippets;
-  //   return (
-  //     <div>
-  //       <ul>
-  //         {renderedSnippets = snippets.map((snippet) => (
-  //            <li key={snippet.id}>{snippet.id} - {snippet.title}</li>
-
-  //         ))}
-
-  //       </ul>
-  //       <div>{snippets.length} snippets loaded.</div>
-  //     </div>
-  //   );
-  // }
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
