@@ -1,9 +1,7 @@
 'use client';
-import { db } from '@/db';
-import ViewButton from '@/components/Buttons/ViewButton';
-import { delay } from '@/utils/delay';
-import { useState, useEffect } from 'react';
-import { getSnippets } from '@/actions';
+import React, { useState, useEffect } from 'react';
+
+import ViewButton from '../Buttons/ViewButton';
 
 interface Snippet {
   id: string;
@@ -11,31 +9,27 @@ interface Snippet {
   code: string;
 }
 
-export default function Home() {
-  const [snippets, setSnippets] = useState<Snippet[]>([]);
-  const [loading, setLoading] = useState(true);
+export default function Homepage({ snippets, loading }: { snippets: Snippet[]; loading: boolean }) {
+  const [isLoading, setIsLoading] = useState(loading);
 
   useEffect(() => {
-    async function fetchData() {
-      await delay(2500);
-      const data = await getSnippets();
-
-      setSnippets(data);
-      setLoading(false);
-    }
-    fetchData();
+    setIsLoading(loading);
   }, []);
 
-  if (loading) {
+  if (isLoading) {
+    {
+      /* 1. Full Page Spinner */
+    }
     return (
-      <>
-        <div className="flex items-center justify-center min-h-screen bg-gray-50">
+      <section className="bg-white rounded-lg shadow-md p-8">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">1. Full Page Spinner</h2>
+        <div className="flex items-center justify-center h-64 bg-gray-50 rounded">
           <div className="text-center">
             <div className="inline-block w-16 h-16 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
             <p className="mt-4 text-gray-600 text-lg">Loading snippets...</p>
           </div>
         </div>
-      </>
+      </section>
     );
   }
 
