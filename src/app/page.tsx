@@ -28,14 +28,31 @@ export default function Home() {
 
   if (loading) {
     return (
-      <>
-        <div className="flex items-center justify-center min-h-screen bg-gray-50">
-          <div className="text-center">
-            <div className="inline-block w-16 h-16 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
-            <p className="mt-4 text-gray-600 text-lg">Loading snippets...</p>
+      console.log('this is snippets length', snippets.length),
+      (
+        <>
+          <h2 className="text-xl font-semibold text-gray-800 mb-4">
+            8. Skeleton Loading (Best for Content)
+          </h2>
+          <div className="grid gap-6 md:grid-cols-2">
+            {[...Array(6)].map((_, i) => (
+              <div key={i} className="bg-gray-50 rounded-lg p-6">
+                <div className="h-6 bg-gray-200 rounded w-3/4 mb-4 animate-pulse"></div>
+                <div className="bg-gray-300 rounded-md p-4 space-y-2 mb-4">
+                  <div className="h-4 bg-gray-400 rounded w-full animate-pulse"></div>
+                  <div className="h-4 bg-gray-400 rounded w-5/6 animate-pulse"></div>
+                  <div className="h-4 bg-gray-400 rounded w-4/6 animate-pulse"></div>
+                </div>
+                <div className="flex gap-2">
+                  <div className="h-10 bg-gray-200 rounded w-20 animate-pulse"></div>
+                  <div className="h-10 bg-gray-200 rounded w-20 animate-pulse"></div>
+                  <div className="h-10 bg-gray-200 rounded w-20 ml-auto animate-pulse"></div>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-      </>
+        </>
+      )
     );
   }
 
