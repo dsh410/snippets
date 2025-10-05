@@ -2,7 +2,13 @@
 import { redirect } from 'next/navigation';
 import React from 'react';
 
-export default function ShowSnippet({ snippet }) {
+interface Snippet {
+  id: string;
+  title: string;
+  code: string;
+}
+
+export default function ShowSnippet({ snippet }: { snippet: Snippet }) {
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-4xl mx-auto">
