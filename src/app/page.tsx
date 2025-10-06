@@ -31,9 +31,6 @@ export default function Home() {
       console.log('this is snippets length', snippets.length),
       (
         <>
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">
-            8. Skeleton Loading (Best for Content)
-          </h2>
           <div className="grid gap-6 md:grid-cols-2">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="bg-gray-50 rounded-lg p-6">

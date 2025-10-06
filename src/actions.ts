@@ -8,3 +8,11 @@ export async function getSnippets() {
   const snippets = await db.snippet.findMany();
   return snippets; // Data is serialized and sent to client
 }
+
+export async function getSnippetById(id: string) {
+  // Prisma runs here (server-side, has Node.js)
+  const snippet = await db.snippet.findUnique({
+    where: { id },
+  });
+  return snippet; // Data is serialized and sent to client
+}
