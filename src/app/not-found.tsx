@@ -18,12 +18,6 @@ export default function SnippetNotFound() {
           >
             Go back home
           </Link>
-          <a
-            href="/contact"
-            className="px-4 py-2 text-gray-700 text-sm font-medium hover:text-gray-900 transition-colors"
-          >
-            Contact support →
-          </a>
         </div>
       </div>
     </div>

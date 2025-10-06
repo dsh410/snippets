@@ -1,6 +1,6 @@
 import { db } from '@/db';
 import ShowSnippet from '@/components/ShowSnippet';
-import SnippetNotFound from './not-found';
+import SnippetNotFound from '../../not-found';
 
 export default async function page({ params }: { params: { id: string } }) {
   const snippet = await db.snippet.findUnique({
