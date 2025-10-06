@@ -5,6 +5,7 @@ import { delay } from '@/utils/delay';
 import { useState, useEffect } from 'react';
 import { getSnippets } from '@/actions';
 import Loading from './loading';
+import Link from 'next/link';
 
 interface Snippet {
   id: string;
@@ -36,7 +37,12 @@ export default function Home() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-bold text-gray-900">My Code Snippets</h1>
-          <span className="text-sm text-gray-600">{snippets.length} snippets</span>
+          <Link
+            href="/snippets/new"
+            className="px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition-colors"
+          >
+            New
+          </Link>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           {snippets.map((snippet) => (
