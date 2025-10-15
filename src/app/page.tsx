@@ -1,5 +1,4 @@
 'use client';
-import { db } from '@/db';
 import ViewButton from '@/components/Buttons/ViewButton';
 import { delay } from '@/utils/delay';
 import { useState, useEffect } from 'react';
@@ -19,7 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      await delay(2500);
+      await delay(2000);
       const data = await getSnippets();
 
       setSnippets(data);

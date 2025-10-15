@@ -39,7 +39,7 @@ export default function SnippetCreatePage() {
               name="title"
               aria-required="true"
               placeholder="e.g., React useEffect Hook"
-              className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${'border-gray-300'}`}
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 border-gray-300"
             />
           </div>
 
@@ -55,7 +55,7 @@ export default function SnippetCreatePage() {
               name="code"
               aria-required="true"
               placeholder="Paste your code here..."
-              className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm ${'border-gray-300'}`}
+              className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm border-gray-300"
             />
           </div>
 

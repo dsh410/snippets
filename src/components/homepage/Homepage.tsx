@@ -14,7 +14,7 @@ export default function Homepage({ snippets, loading }: { snippets: Snippet[]; l
 
   useEffect(() => {
     setIsLoading(loading);
-  }, []);
+  }, [loading]);
 
   if (isLoading) {
     {
