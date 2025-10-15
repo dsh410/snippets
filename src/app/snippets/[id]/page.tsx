@@ -3,8 +3,9 @@ import ShowSnippet from '@/components/ShowSnippet';
 import SnippetNotFound from '../../not-found';
 
 export default async function page({ params }: { params: { id: string } }) {
+  const id = await params.id;
   const snippet = await db.snippet.findUnique({
-    where: { id: params.id },
+    where: { id },
   });
 
   if (!snippet) {

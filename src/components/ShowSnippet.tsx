@@ -1,6 +1,7 @@
 'use client';
 import { redirect } from 'next/navigation';
 import React from 'react';
+import Link from 'next/link';
 
 interface Snippet {
   id: string;
@@ -29,9 +30,12 @@ export default function ShowSnippet({ snippet }: { snippet: Snippet }) {
               </h1>
             </div>
             <div className="flex gap-2">
-              <button className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md text-sm hover:bg-gray-300 transition-colors">
+              <Link
+                href={`/snippets/${snippet.id}/edit`}
+                className="px-4 py-2 bg-gray-200 text-gray-700 rounded-md text-sm hover:bg-gray-300 transition-colors"
+              >
                 Edit
-              </button>
+              </Link>
               <button className="px-4 py-2 bg-red-600 text-white rounded-md text-sm hover:bg-red-700 transition-colors">
                 Delete
               </button>
