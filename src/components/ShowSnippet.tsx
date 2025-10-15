@@ -1,8 +1,8 @@
 'use client';
-import { redirect } from 'next/navigation';
 import React from 'react';
 import Link from 'next/link';
 import { deleteSnippet } from '@/actions/index';
+import { link } from 'fs';
 
 interface Snippet {
   id: string;
@@ -19,12 +19,12 @@ export default function ShowSnippet({ snippet }: { snippet: Snippet }) {
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="mb-6">
-          <button
-            onClick={() => redirect('/')}
+          <Link
+            href="/"
             className="text-blue-600 hover:text-blue-700 flex items-center gap-2 text-sm"
           >
             ← Back to Snippets
-          </button>
+          </Link>
         </div>
 
         <div className="bg-white rounded-lg shadow-md p-8">
