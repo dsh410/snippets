@@ -2,6 +2,7 @@
 import { redirect } from 'next/navigation';
 import React from 'react';
 import Link from 'next/link';
+import { deleteSnippet } from '@/actions/index';
 
 interface Snippet {
   id: string;
@@ -10,6 +11,10 @@ interface Snippet {
 }
 
 export default function ShowSnippet({ snippet }: { snippet: Snippet }) {
+  const handleDelete = async () => {
+    await deleteSnippet({ id: snippet.id });
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
       <div className="max-w-4xl mx-auto">
@@ -36,9 +41,14 @@ export default function ShowSnippet({ snippet }: { snippet: Snippet }) {
               >
                 Edit
               </Link>
-              <button className="px-4 py-2 bg-red-600 text-white rounded-md text-sm hover:bg-red-700 transition-colors">
-                Delete
-              </button>
+              <form action={handleDelete}>
+                <button
+                  type="submit"
+                  className="px-4 py-2 bg-red-600 text-white rounded-md text-sm hover:bg-red-700 transition-colors"
+                >
+                  Delete
+                </button>
+              </form>
             </div>
           </div>
 
