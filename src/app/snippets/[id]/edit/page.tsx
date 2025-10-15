@@ -4,9 +4,9 @@ import { notFound } from 'next/navigation';
 import SnippetEditForm from '@/components/snippetEditForm/page';
 
 interface SnippetEditPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default async function SnippetEditPage(props: SnippetEditPageProps) {
