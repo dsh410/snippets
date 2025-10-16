@@ -18,7 +18,10 @@ export default function Home() {
 
   useEffect(() => {
     async function fetchData() {
-      await delay(2000);
+      if (process.env.NODE_ENV === 'development') {
+        await delay(2000);
+      }
+
       const data = await getSnippets();
 
       setSnippets(data);
