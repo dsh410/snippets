@@ -10,13 +10,7 @@ interface Snippet {
 }
 
 export default function Homepage({ snippets, loading }: { snippets: Snippet[]; loading: boolean }) {
-  const [isLoading, setIsLoading] = useState(loading);
-
-  useEffect(() => {
-    setIsLoading(loading);
-  }, [loading]);
-
-  if (isLoading) {
+  if (loading) {
     {
       /* 1. Full Page Spinner */
     }

@@ -10,9 +10,7 @@ interface Snippet {
 }
 
 export default function ShowSnippet({ snippet }: { snippet: Snippet }) {
-  const handleDelete = async () => {
-    await deleteSnippet({ id: snippet.id });
-  };
+  const handleDelete = deleteSnippet.bind(null, { id: snippet.id });
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
