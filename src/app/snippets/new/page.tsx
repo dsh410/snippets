@@ -53,6 +53,7 @@ export default function SnippetCreatePage() {
             <textarea
               id="code"
               name="code"
+              rows={10}
               aria-required="true"
               placeholder="Paste your code here..."
               className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 font-mono text-sm border-gray-300"
@@ -60,6 +61,7 @@ export default function SnippetCreatePage() {
           </div>
 
           <button
+            type="submit"
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
             aria-label="Create snippet"
           >

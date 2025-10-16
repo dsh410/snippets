@@ -24,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="-en">
+    <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased caret-transparent`}>
         <div className="container mx-auto px-12">{children}</div>
       </body>
