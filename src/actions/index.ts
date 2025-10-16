@@ -2,7 +2,7 @@
 import { db } from '@/db';
 import { redirect } from 'next/navigation';
 
-export const editSnippet = async ({ id, code }: { id: string; title: string; code: string }) => {
+export const editSnippet = async ({ id, code }: { id: string; code: string }) => {
   await db.snippet.update({
     where: { id },
     data: { code },
