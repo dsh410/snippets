@@ -35,6 +35,7 @@ export default function SnippetEditForm({ snippet }: SnippetEditFormProps) {
             <div className="flex-1">
               <input
                 type="text"
+                name="title"
                 defaultValue={snippet.title}
                 className="text-3xl font-bold text-gray-900 mb-2 w-full border-b-2 border-blue-500 focus:outline-none focus:border-blue-600"
                 placeholder="Snippet Title"
