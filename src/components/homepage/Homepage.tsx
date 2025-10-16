@@ -1,10 +1,7 @@
 'use client';
-import ViewButton from '@/components/Buttons/ViewButton';
-import { delay } from '@/utils/delay';
-import { useState, useEffect } from 'react';
-import { getSnippets } from '@/actions';
-import Loading from './loading';
-import Link from 'next/link';
+import React, { useState, useEffect } from 'react';
+
+import ViewButton from '../Buttons/ViewButton';
 
 interface Snippet {
   id: string;
@@ -12,26 +9,22 @@ interface Snippet {
   code: string;
 }
 
-export default function Home() {
-  const [snippets, setSnippets] = useState<Snippet[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchData() {
-      if (process.env.NODE_ENV === 'development') {
-        await delay(2000);
-      }
-
-      const data = await getSnippets();
-
-      setSnippets(data);
-      setLoading(false);
-    }
-    fetchData();
-  }, []);
-
+export default function Homepage({ snippets, loading }: { snippets: Snippet[]; loading: boolean }) {
   if (loading) {
-    return <Loading />;
+    {
+      /* 1. Full Page Spinner */
+    }
+    return (
+      <section className="bg-white rounded-lg shadow-md p-8">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">1. Full Page Spinner</h2>
+        <div className="flex items-center justify-center h-64 bg-gray-50 rounded">
+          <div className="text-center">
+            <div className="inline-block w-16 h-16 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin"></div>
+            <p className="mt-4 text-gray-600 text-lg">Loading snippets...</p>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
@@ -39,12 +32,7 @@ export default function Home() {
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-bold text-gray-900">My Code Snippets</h1>
-          <Link
-            href="/snippets/new"
-            className="px-4 py-2 bg-blue-600 text-white rounded-md text-sm hover:bg-blue-700 transition-colors"
-          >
-            New
-          </Link>
+          <span className="text-sm text-gray-600">{snippets.length} snippets</span>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
           {snippets.map((snippet) => (
